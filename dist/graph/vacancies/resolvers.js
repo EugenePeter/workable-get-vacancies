@@ -48,7 +48,7 @@ exports.vacancy_resolvers = {
                     switch (_b.label) {
                         case 0:
                             _b.trys.push([0, 2, , 3]);
-                            return [4 /*yield*/, utils_1.Vacancies.find({ company_id: company_id })];
+                            return [4 /*yield*/, utils_1.Vacancies.find({})];
                         case 1:
                             result = _b.sent();
                             console.log("VACANCIES FOUND:", result);
