@@ -47,6 +47,7 @@ interface VacancyDocument extends mongoose.Document {
   skills_and_qualifications: SkillsAndQualifications;
   vacancy: string;
   company_id: string;
+  id: string;
 }
 
 const vacancySchema = new mongoose.Schema({
@@ -88,6 +89,12 @@ const vacancySchema = new mongoose.Schema({
   },
   company_id: {
     type: String,
+    required: true,
+  },
+  // _id: false,
+  id: {
+    type: String,
+    unique: true,
     required: true,
   },
 });

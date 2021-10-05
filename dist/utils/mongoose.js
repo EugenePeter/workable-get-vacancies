@@ -46,6 +46,12 @@ var vacancySchema = new mongoose_1.default.Schema({
         type: String,
         required: true,
     },
+    // _id: false,
+    id: {
+        type: String,
+        unique: true,
+        required: true,
+    },
 });
 vacancySchema.statics.build = function (attrs) {
     return new exports.Vacancies(attrs);

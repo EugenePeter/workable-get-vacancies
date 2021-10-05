@@ -26,6 +26,7 @@ export const vancancy_type_defs = gql`
   }
 
   type VacanciesFound {
+    _id: String
     employer_questions: TEmployerQuestions
     job_category: String!
     job_description: TJobDescription
