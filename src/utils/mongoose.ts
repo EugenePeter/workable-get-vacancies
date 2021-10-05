@@ -36,7 +36,7 @@ interface VacancyModel extends mongoose.Model<VacancyDocument> {
 }
 
 // An interface that describes the properties that a company document has
-interface VacancyDocument extends mongoose.Document {
+interface VacancyDocument {
   employer_questions: EmployerQuestions;
   job_category: string;
   job_description: JobDescription;
