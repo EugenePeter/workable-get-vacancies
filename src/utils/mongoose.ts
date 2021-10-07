@@ -50,54 +50,63 @@ interface VacancyDocument {
   id: string;
 }
 
-const vacancySchema = new mongoose.Schema({
-  employer_questions: {
-    type: Object,
-    required: true,
+const vacancySchema = new mongoose.Schema(
+  {
+    employer_questions: {
+      type: Object,
+      required: true,
+    },
+    job_category: {
+      type: String,
+      required: true,
+    },
+    job_description: {
+      type: Object,
+      required: true,
+    },
+    location: {
+      type: String,
+      required: true,
+    },
+    position_and_responsibilities: {
+      type: Object,
+      required: true,
+    },
+    position_type: {
+      type: String,
+      required: true,
+    },
+    salary: {
+      type: Object,
+      required: true,
+    },
+    skills_and_qualifications: {
+      type: Object,
+      required: true,
+    },
+    vacancy: {
+      type: String,
+      required: true,
+    },
+    company_id: {
+      type: String,
+      required: true,
+    },
+    // _id: false,
+    id: {
+      type: String,
+      unique: true,
+      required: true,
+    },
   },
-  job_category: {
-    type: String,
-    required: true,
-  },
-  job_description: {
-    type: Object,
-    required: true,
-  },
-  location: {
-    type: String,
-    required: true,
-  },
-  position_and_responsibilities: {
-    type: Object,
-    required: true,
-  },
-  position_type: {
-    type: String,
-    required: true,
-  },
-  salary: {
-    type: Object,
-    required: true,
-  },
-  skills_and_qualifications: {
-    type: Object,
-    required: true,
-  },
-  vacancy: {
-    type: String,
-    required: true,
-  },
-  company_id: {
-    type: String,
-    required: true,
-  },
-  // _id: false,
-  id: {
-    type: String,
-    unique: true,
-    required: true,
-  },
-});
+  {
+    writeConcern: {
+      w: "majority",
+      j: true,
+      wtimeout: 1000,
+    },
+  }
+);
 
 vacancySchema.statics.build = (attrs: VacancyAtrtibutes) => {
   return new Vacancies(attrs);

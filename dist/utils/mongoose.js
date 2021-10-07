@@ -52,6 +52,12 @@ var vacancySchema = new mongoose_1.default.Schema({
         unique: true,
         required: true,
     },
+}, {
+    writeConcern: {
+        w: "majority",
+        j: true,
+        wtimeout: 1000,
+    },
 });
 vacancySchema.statics.build = function (attrs) {
     return new exports.Vacancies(attrs);
